@@ -1,5 +1,7 @@
 # Block Extractor DB
 
+![plugin-ui](asset/plugin-ui-day.png)  
+
 A [Logseq](https://logseq.com) plugin that filters the reference blocks for a specific tag/page and downloads them as a markdown file — **built for Logseq DB graphs (Logseq 2.x beta, sqlite-based)**.
 
 This is the DB-graph counterpart of [logseq-block-extractor](https://github.com/inchanS/logseq-block-extractor). For file-based (markdown) graphs, use the original plugin.
