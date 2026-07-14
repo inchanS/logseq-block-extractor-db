@@ -1,3 +1,8 @@
+## <small>1.0.3 (2026-07-14)</small>
+
+* Update icon.png ([148627a](https://github.com/inchanS/logseq-block-extractor-db/commit/148627a))
+* docs: add badges and logo to README files ([3015fdc](https://github.com/inchanS/logseq-block-extractor-db/commit/3015fdc))
+
 ## <small>1.0.2 (2026-07-14)</small>
 
 * Add LICENSE ([da4cff4](https://github.com/inchanS/logseq-block-extractor-db/commit/da4cff4))

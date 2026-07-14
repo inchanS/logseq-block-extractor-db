@@ -1,6 +1,6 @@
 {
   "name": "logseq-block-extractor-db",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Filter the reference blocks for a specific tag/page in Logseq DB graphs (Logseq 2.x) and download them as a markdown file.",
   "type": "module",
   "main": "dist/index.html",
