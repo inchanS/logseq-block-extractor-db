@@ -1,5 +1,10 @@
 # Block Extractor DB
 
+![GitHub stars](https://img.shields.io/github/stars/inchanS/logseq-block-extractor-db?style=flat&logo=apachespark)
+![GitHub all releases](https://img.shields.io/github/downloads/inchanS/logseq-block-extractor-db/total?logo=github) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/inchanS/logseq-block-extractor-db?logo=rocket)  ![GitHub](https://img.shields.io/github/license/inchanS/logseq-block-extractor-db?logo=gnu)
+
+![logo](icon.png)  
+
 ![plugin-ui](asset/plugin-ui-day.png)  
 
 ![plugin-ui](asset/plugin-ui-day-extended.png)  
