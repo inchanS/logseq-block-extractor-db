@@ -1,3 +1,9 @@
+## <small>1.0.2 (2026-07-14)</small>
+
+* Add LICENSE ([da4cff4](https://github.com/inchanS/logseq-block-extractor-db/commit/da4cff4))
+* add plugin ui extension screen ([0ae7f4e](https://github.com/inchanS/logseq-block-extractor-db/commit/0ae7f4e))
+* edit README.md ([3be4376](https://github.com/inchanS/logseq-block-extractor-db/commit/3be4376))
+
 ## <small>1.0.1 (2026-07-14)</small>
 
 * chore: add conventional-changelog dependencies ([fefba0a](https://github.com/inchanS/logseq-block-extractor-db/commit/fefba0a))
