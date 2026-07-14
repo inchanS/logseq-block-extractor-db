@@ -17,7 +17,8 @@
     "build": "npm run clean && tsc && vite build",
     "pack": "npm run build && zip -qq -r logseq-block-extractor-db-$(node -p \"require('./package.json').version\").zip dist README.md package.json *.png",
     "preview": "vite preview",
-    "watch": "npm run clean && vite build --watch"
+    "watch": "npm run clean && vite build --watch",
+    "dist": "sh version.sh"
   },
   "keywords": [
     "logseq",
