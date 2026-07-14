@@ -2,6 +2,9 @@
 
 ![plugin-ui](asset/plugin-ui-day.png)  
 
+![plugin-ui](asset/plugin-ui-day-extended.png)  
+
+
 특정 태그/페이지를 참조하는 블록들을 필터링해 마크다운 파일로 다운로드하는 [Logseq](https://logseq.com) 플러그인 — **Logseq DB 그래프(2.x 베타, sqlite 기반) 전용**입니다.
 
 [logseq-block-extractor](https://github.com/inchanS/logseq-block-extractor)의 DB 그래프 버전입니다. 파일(마크다운) 기반 그래프에서는 원본 플러그인을 사용하세요.
