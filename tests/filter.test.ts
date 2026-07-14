@@ -71,4 +71,45 @@ describe('filterBlocksByKeyword', () => {
         const parent = block('daily note', [block('random')]);
         expect(filterBlocksByKeyword(parent, ['coding'])).toBeNull();
     });
+
+    it('제외 키워드: 매칭된 부모 아래의 제외 대상 자식도 제거', () => {
+        const keep = block('coding tip');
+        const excluded = block('coding draft');
+        const parent = block('coding note', [keep, excluded]);
+
+        const result = filterBlocksByKeyword(parent, ['coding', '-draft']);
+        expect(result).not.toBeNull();
+        expect(result!.children).toHaveLength(1);
+        expect((result!.children![0] as any).fullTitle).toBe('coding tip');
+    });
+
+    it('제외 키워드만 있는 경우: 하위 트리의 제외 대상도 제거', () => {
+        const excluded = block('draft idea', [block('nested under draft')]);
+        const keep = block('final note');
+        const parent = block('daily note', [keep, excluded]);
+
+        const result = filterBlocksByKeyword(parent, ['-draft']);
+        expect(result).not.toBeNull();
+        expect(result!.children).toHaveLength(1);
+        expect((result!.children![0] as any).fullTitle).toBe('final note');
+    });
+
+    it('제외 키워드에 걸린 블록은 매칭되는 자식이 있어도 서브트리째 제거', () => {
+        const matchingChild = block('coding tip');
+        const excludedParent = block('draft folder', [matchingChild]);
+
+        expect(filterBlocksByKeyword(excludedParent, ['coding', '-draft'])).toBeNull();
+    });
+
+    it('깊은 계층의 제외 대상도 제거', () => {
+        const deep = block('level1', [block('level2', [block('secret draft')])]);
+        const result = filterBlocksByKeyword(deep, ['level', '-draft']);
+        expect(result).not.toBeNull();
+        const l2 = result!.children![0] as any;
+        expect(l2.children).toHaveLength(0);
+    });
+
+    it('빈 제외 키워드("-"만 입력)는 무시', () => {
+        expect(filterBlocksByKeyword(block('anything'), ['-'])).not.toBeNull();
+    });
 });

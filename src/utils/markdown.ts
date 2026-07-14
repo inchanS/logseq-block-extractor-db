@@ -159,10 +159,12 @@ function renderFullHierarchy(
 
         content += renderLine(currentBlock, currentIndent, linkReplacement);
 
-        // 타겟 블록에 도달했으면 모든 하위 블록 포함
+        // 타겟 블록에 도달하면 하위 블록 포함.
+        // 이때 API로 재조회한 currentBlock(필터링 안 된 원본)이 아니라
+        // 키워드 필터를 통과한 targetBlock의 자식을 렌더링해야 한다.
         if (currentBlock.uuid === targetBlock.uuid) {
-            if (currentBlock.children && Array.isArray(currentBlock.children)) {
-                currentBlock.children
+            if (targetBlock.children && Array.isArray(targetBlock.children)) {
+                targetBlock.children
                     .filter(isBlockEntity)
                     .forEach((child: BlockEntity) => {
                         content += renderBlockWithChildren(child, {

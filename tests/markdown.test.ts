@@ -80,6 +80,25 @@ describe('renderBlockWithChildren', () => {
     });
 });
 
+describe('renderBlockWithParents (필터 결과 유지)', () => {
+    it('showFullHierarchy에서 타겟 블록은 필터링된 자식을 렌더링 (재조회 원본이 아님)', async () => {
+        // findRootParent가 logseq.Editor.getBlock으로 원본(필터링 안 된) 트리를 재조회하는 상황을 재현
+        const unfilteredTree = block('parent', [block('keep me'), block('excluded draft')], {uuid: 'target-1'});
+        (globalThis as any).logseq = {
+            Editor: {getBlock: async () => unfilteredTree}
+        };
+
+        // 키워드 필터를 통과한 트리 (draft 자식이 제거된 상태)
+        const filteredTarget = block('parent', [block('keep me')], {uuid: 'target-1'});
+
+        const {renderBlockWithParents} = await import('../src/utils/markdown');
+        const md = await renderBlockWithParents(filteredTarget, {showFullHierarchy: true});
+
+        expect(md).toContain('keep me');
+        expect(md).not.toContain('excluded draft');
+    });
+});
+
 describe('convertPageBlocksToMarkdown', () => {
     it('페이지 본문도 동일하게 탭 인덴트로 렌더링', () => {
         const blocks = [block('top', [block('nested')])];
