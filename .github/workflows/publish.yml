@@ -6,7 +6,7 @@ on:
       - "v*"  # 버전 태그(v1.2.3) 푸시 시에만 실행
 
 env:
-  PLUGIN_NAME: logseq-block-extractor-db
+  PLUGIN_NAME: db-block-extractor
 
 permissions:
   contents: write
