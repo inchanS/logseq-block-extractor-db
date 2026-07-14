@@ -1,0 +1,42 @@
+{
+  "name": "logseq-block-extractor-db",
+  "version": "1.0.0",
+  "description": "Filter the reference blocks for a specific tag/page in Logseq DB graphs (Logseq 2.x) and download them as a markdown file.",
+  "type": "module",
+  "main": "dist/index.html",
+  "logseq": {
+    "id": "logseq-block-extractor-db",
+    "title": "Block Extractor DB",
+    "icon": "./icon.png"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "clean": "rm -rf dist && rm -f logseq-block-extractor-db*.zip",
+    "dev": "npm run clean && vite",
+    "build": "npm run clean && tsc && vite build",
+    "pack": "npm run build && zip -qq -r logseq-block-extractor-db-$(node -p \"require('./package.json').version\").zip dist README.md package.json *.png",
+    "preview": "vite preview",
+    "watch": "npm run clean && vite build --watch"
+  },
+  "keywords": [
+    "logseq",
+    "logseq-db",
+    "plugin",
+    "references",
+    "blocks",
+    "filter",
+    "export"
+  ],
+  "author": "Inchan Song",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "@logseq/libs": "^0.3.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.29",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vitest": "^3.2.4"
+  }
+}
